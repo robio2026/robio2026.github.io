@@ -7,7 +7,15 @@
   <title>Index - Story Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-
+  <script>
+    const DESIGN_WIDTH = 1920;
+    const scale = window.innerWidth / DESIGN_WIDTH;
+    const meta = document.querySelector('meta[name=viewport]');
+    meta.setAttribute(
+      'content',
+      `width=${DESIGN_WIDTH}, initial-scale=${scale}, minimum-scale=${scale}, maximum-scale=${scale}, user-scalable=no`
+    );
+  </script>
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -28,7 +36,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
- 
+
 </head>
 
 <body class="index-page">
@@ -44,7 +52,7 @@
         <ul>
           <li><a href="index.html">HOME</a></li>
           <li><a href="committees.html">COMMITTEES</a></li>
-          <li class="dropdown" ><a href="#" ><span>CONTRIBUTION</span> <i
+          <li class="dropdown"><a href="#"><span>CONTRIBUTION</span> <i
                 class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="call-for-papers.html">CALL FOR PAPERS</a></li>
@@ -55,7 +63,7 @@
           </li>
 
 
-          <li><a href="program.html"  class="active">PROGRAM</a></li>
+          <li><a href="program.html" class="active">PROGRAM</a></li>
           <li><a href="registration.html">REGISTRATION</a></li>
           <li class="dropdown"><a href="#"><span>TRAVEL</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -85,7 +93,7 @@
 
 
     <div class="container section" data-aos="fade-up">
-    
+
 
     </div>
 
@@ -107,20 +115,36 @@
             <div class="col-auto">
               <div class="d-flex flex-wrap gap-5">
                 <div class="d-flex flex-column">
-                  <a href="committees.html"><h5 class="mb-4">COMMITTEES</h5></a>
-                  <a href="visa.html"><h5>VISA & TRAVEL</h5></a>
+                  <a href="committees.html">
+                    <h5 class="mb-4">COMMITTEES</h5>
+                  </a>
+                  <a href="visa.html">
+                    <h5>VISA & TRAVEL</h5>
+                  </a>
                 </div>
                 <div class="d-flex flex-column">
-                  <a href="call-for-papers.html"><h5 class="mb-4">CONTRIBUTION</h5></a>
-                  <a href="venue.html"><h5>VENUE</h5></a>
+                  <a href="call-for-papers.html">
+                    <h5 class="mb-4">CONTRIBUTION</h5>
+                  </a>
+                  <a href="venue.html">
+                    <h5>VENUE</h5>
+                  </a>
                 </div>
                 <div class="d-flex flex-column">
-                  <a href="program.html"><h5 class="mb-4">PROGRAM</h5></a>
-                  <a href="accommodation.html"><h5>ACCOMMODATION</h5></a>
+                  <a href="program.html">
+                    <h5 class="mb-4">PROGRAM</h5>
+                  </a>
+                  <a href="accommodation.html">
+                    <h5>ACCOMMODATION</h5>
+                  </a>
                 </div>
                 <div class="d-flex flex-column">
-                  <a href="registration.html"><h5 class="mb-4">REGISTRATION</h5></a>
-                  <a href="awards.html"><h5>AWARDS</h5></a>
+                  <a href="registration.html">
+                    <h5 class="mb-4">REGISTRATION</h5>
+                  </a>
+                  <a href="awards.html">
+                    <h5>AWARDS</h5>
+                  </a>
                 </div>
               </div>
             </div>

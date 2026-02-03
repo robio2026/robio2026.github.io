@@ -7,7 +7,15 @@
   <title>Index - Story Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-  <meta name="viewport" content="width=1920, initial-scale=1.0, minimum-scale=0.2, maximum-scale=1.0">
+  <script>
+    const DESIGN_WIDTH = 1920;
+    const scale = window.innerWidth / DESIGN_WIDTH;
+    const meta = document.querySelector('meta[name=viewport]');
+    meta.setAttribute(
+      'content',
+      `width=${DESIGN_WIDTH}, initial-scale=${scale}, minimum-scale=${scale}, maximum-scale=${scale}, user-scalable=no`
+    );
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -351,7 +359,7 @@
       <p>If you need an invitation letter from ROBIO 2026, please send an email to . Please provide
         your name, title, address, and ID of the accepted paper.</p>
 
-        
+
 
     </div>
 

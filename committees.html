@@ -7,7 +7,15 @@
   <title>Index - Story Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-
+  <script>
+    const DESIGN_WIDTH = 1920;
+    const scale = window.innerWidth / DESIGN_WIDTH;
+    const meta = document.querySelector('meta[name=viewport]');
+    meta.setAttribute(
+      'content',
+      `width=${DESIGN_WIDTH}, initial-scale=${scale}, minimum-scale=${scale}, maximum-scale=${scale}, user-scalable=no`
+    );
+  </script>
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -28,7 +36,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
- 
+
 </head>
 
 <body class="index-page">
@@ -85,7 +93,7 @@
 
     <div class="container section" data-aos="fade-up">
 
-      
+
 
       <h2>Advisory Council</h2>
 
