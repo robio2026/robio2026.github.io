@@ -14,29 +14,41 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "arial",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "arial black",  sans-serif;
-  --nav-font: "arial black",  sans-serif;
+  --default-font: "arial", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "arial black", sans-serif;
+  --nav-font: "arial black", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #000000; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: rgb(0, 77, 160); /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #2986cc; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #000000;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: rgb(0, 77, 160);
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #2986cc;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(110, 201, 255, 1);  /* The default color of the main navmenu links */
-  --nav-hover-color: rgba(0, 77, 160, 1); /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #2986cc; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: rgba(110, 201, 255, 1);
+  /* The default color of the main navmenu links */
+  --nav-hover-color: rgba(0, 77, 160, 1);
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #2986cc;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -90,13 +102,13 @@ h6 {
 }
 
 
-.name{
+.name {
   font-size: 24px;
-    text-align: center;
+  text-align: center;
 
 }
 
-.affiliation{
+.affiliation {
   color: var(--heading-color);
   font-family: var(--default-font);
   font-size: 24px;
@@ -104,6 +116,7 @@ h6 {
   text-align: center;
 
 }
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -225,7 +238,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
   .navmenu {
     padding: 0;
   }
@@ -333,7 +346,7 @@ h6 {
 }
 
 /* Navmenu - Mobile */
-@media (max-width: 1199px) {
+@media (max-width: 799px) {
   .mobile-nav-toggle {
     background-color: color-mix(in srgb, var(--default-color) 10%, white 15%);
     color: var(--nav-color);
@@ -476,6 +489,7 @@ h6 {
   font-size: 15px;
   padding: 40px 0 0;
   position: relative;
+  min-width: 1400px;
   /* border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%); */
 }
 
@@ -483,9 +497,14 @@ h6 {
   max-width: 1800px;
   display: flex;
   align-items: center;
+  min-width: 1400px;
 }
 
-.footer  h5 {
+.footer .container {
+  min-width: 1400px;
+}
+
+.footer h5 {
   color: #333333;
   font-size: 20px;
   font-weight: 500;
@@ -629,24 +648,15 @@ h6 {
   padding: 25px 0;
   /* background-color: color-mix(in srgb, color percentage, color percentage) */
   background: color-mix(in srgb, var(--background-color), white 50%);
-  }
+}
 
 .footer .footer-bottom .footer-bottom-content {
   /* display: flex; */
   /* justify-content: space-between; */
-  text-align: center ;
+  text-align: center;
   align-items: center;
 }
 
-
-
-@media (max-width: 768px) {
-  .footer .footer-bottom .footer-bottom-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-}
 
 .footer .footer-bottom .footer-bottom-content p {
   margin: 0;
@@ -865,6 +875,7 @@ section,
   padding: 30px 0;
   /* margin-bottom: 30px; */
   position: relative;
+  min-width: 1400px;
 }
 
 .section h2 {
@@ -939,14 +950,15 @@ section,
   width: 100%;
 }
 
-.sub-section .sub-section-content h1{
+.sub-section .sub-section-content h1 {
   color: var(--contrast-color);
   font-size: 80px;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
 }
-.sub-section .sub-section-content h2{
+
+.sub-section .sub-section-content h2 {
   color: var(--contrast-color);
   font-size: 40px;
   font-weight: 700;
@@ -1011,14 +1023,15 @@ section,
   letter-spacing: 1px;
 }
 
-.main-section .main-section-content h1{
+.main-section .main-section-content h1 {
   color: var(--contrast-color);
   font-size: 120px;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
 }
-.main-section .main-section-content h2{
+
+.main-section .main-section-content h2 {
   color: var(--contrast-color);
   font-size: 40px;
   font-weight: 700;
@@ -1116,6 +1129,104 @@ section,
 
 .main-section .swiper-wrapper {
   height: auto !important;
+}
+
+/* Notice Section Styles */
+.notice-content {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.notice-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.notice-item:hover {
+  background-color: rgba(44, 73, 100, 0.03);
+  transform: translateX(5px);
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.notice-date {
+  min-width: 120px;
+  font-weight: 600;
+  color: #2c4964;
+  padding-right: 1rem;
+  transition: all 0.3s ease;
+  font-size: 23px;
+}
+
+.notice-item:hover .notice-date {
+  color: #1a365d;
+  transform: scale(1.05);
+}
+
+.notice-text {
+  flex: 1;
+  color: #444;
+  line-height: 1.6;
+  font-size: 23px;
+}
+
+.notice-link {
+  display: flex;
+  align-items: center;
+  color: #2c4964;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.notice-link:hover {
+  color: #1a365d;
+  transform: translateX(3px);
+}
+
+.notice-link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notice-icon {
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.notice-link:hover .notice-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .notice-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .notice-date {
+    min-width: auto;
+    padding-right: 0;
+  }
+
+  .notice-item:hover {
+    transform: translateX(3px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -4161,7 +4272,7 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 .contact .container {
-  max-width: 1280px;
+  max-width: 1600px;
 }
 
 .contact .contact-wrapper {
