@@ -921,3 +921,25 @@ section,
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 5px 5px;
+}
+
+table th {
+  background-color: color-mix(in srgb, var(--nav-color), transparent 10%);
+  color: var(--contrast-color);
+  font-weight: 600;
+}
