@@ -55,6 +55,19 @@
     ]
   ];
 
+  const footerCreditsHtml = `
+    <div class="copyright">
+      © Copyright <strong>IEEE ROBIO 2026</strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you've purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+    </div>
+  `;
+
   function getCurrentPath() {
     const rawPath = window.location.pathname.split('/').pop() || 'index.html';
     return rawPath.toLowerCase();
@@ -88,9 +101,9 @@
     navMenu.innerHTML = `<ul>${navList}</ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i>`;
   }
 
-  function renderFooterLinks() {
-    const footerLinks = document.querySelector('#footer-links');
-    if (!footerLinks) {
+  function renderFooter() {
+    const footer = document.querySelector('#footer[data-footer-inject="true"]');
+    if (!footer) {
       return;
     }
 
@@ -101,20 +114,33 @@
       return `<div class="d-flex flex-column">${links}</div>`;
     }).join('');
 
-    footerLinks.innerHTML = `
-      <div class="col-auto">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <img src="assets/img/logo.png" alt="" style="max-width: 180px;">
-        </a>
+    footer.innerHTML = `
+      <div class="footer-top">
+        <div class="container" data-aos="fade-up">
+          <div class="row justify-content-between align-items-start">
+            <div class="col-auto">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/logo.png" alt="" style="max-width: 180px;">
+              </a>
+            </div>
+            <div class="col-auto">
+              <div class="d-flex flex-wrap gap-5">${columns}</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-auto">
-        <div class="d-flex flex-wrap gap-5">${columns}</div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            ${footerCreditsHtml}
+          </div>
+        </div>
       </div>
     `;
   }
 
   renderNavigation();
-  renderFooterLinks();
+  renderFooter();
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down

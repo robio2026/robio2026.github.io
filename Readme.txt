@@ -16,8 +16,8 @@ copy-paste maintenance across HTML pages.
 - All pages keep this placeholder:
 	<nav id="navmenu" class="navmenu" data-nav-inject="true"></nav>
 - All pages keep this placeholder:
-	<div id="footer-links" class="row justify-content-between align-items-start"></div>
-- The actual links are rendered in assets/js/main.js from these data sources:
+	<footer id="footer" class="footer position-relative light-background" data-footer-inject="true"></footer>
+- The actual navigation/footer content is rendered in assets/js/main.js from these data sources:
 	- navItems
 	- footerColumns
 
@@ -33,11 +33,13 @@ copy-paste maintenance across HTML pages.
 4) Vendor script loading rule
 - Swiper CSS/JS is loaded only by index.html.
 - php-email-form and purecounter were removed from all pages because they are not used.
+- Shared viewport scaling now lives in assets/js/viewport.js and is included by every page.
 
 5) How to add a new top-level page
 - Create newpage.html with:
 	- standard head metadata
 	- body class (for example: page-newpage)
 	- nav/footer placeholders listed in section 1
+- 	- <script src="assets/js/viewport.js"></script> in the head
 - Add one menu item in assets/js/main.js -> navItems.
 - If needed in footer, add it to assets/js/main.js -> footerColumns.
