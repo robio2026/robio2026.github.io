@@ -126,7 +126,7 @@
               </a>
             </div>
             <div class="col-auto footer-links-wrap">
-              <div class="row row-cols-2 row-cols-lg-4 g-4 justify-content-end footer-links-grid">${columns}</div>
+              <div class="row row-cols-2 row-cols-lg-4 gx-5 gy-4 justify-content-end footer-links-grid">${columns}</div>
             </div>
           </div>
         </div>
