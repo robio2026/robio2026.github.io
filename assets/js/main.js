@@ -9,12 +9,120 @@
 (function() {
   "use strict";
 
+  const navItems = [
+    { label: "HOME", href: "index.html" },
+    { label: "COMMITTEES", href: "committees.html" },
+    {
+      label: "CONTRIBUTION",
+      children: [
+        { label: "CALL FOR PAPERS", href: "call-for-papers.html" },
+        { label: "PAPER SUBMISSION", href: "paper-submission.html" },
+        { label: "WORKSHOP/SPECIAL SESSION PROPOSAL SUBMISSION", href: "workshop-submission.html" },
+        { label: "FINAL SUBMISSION", href: "final-submission.html" }
+      ]
+    },
+    { label: "PROGRAM", href: "program.html" },
+    { label: "REGISTRATION", href: "registration.html" },
+    { label: "SPONSORSHIP", href: "sponsorship.html" },
+    {
+      label: "TRAVEL",
+      children: [
+        { label: "VISA & TRAVEL", href: "visa.html" },
+        { label: "VENUE", href: "venue.html" },
+        { label: "ACCOMMODATION", href: "accommodation.html" },
+        { label: "ATTRACTIONS", href: "attractions.html" }
+      ]
+    },
+    { label: "AWARDS", href: "awards.html" }
+  ];
+
+  const footerColumns = [
+    [
+      { label: "COMMITTEES", href: "committees.html", className: "mb-4" },
+      { label: "VISA & TRAVEL", href: "visa.html" }
+    ],
+    [
+      { label: "CONTRIBUTION", href: "call-for-papers.html", className: "mb-4" },
+      { label: "VENUE", href: "venue.html" }
+    ],
+    [
+      { label: "PROGRAM", href: "program.html", className: "mb-4" },
+      { label: "ACCOMMODATION", href: "accommodation.html" }
+    ],
+    [
+      { label: "REGISTRATION", href: "registration.html", className: "mb-4" },
+      { label: "AWARDS", href: "awards.html" }
+    ]
+  ];
+
+  function getCurrentPath() {
+    const rawPath = window.location.pathname.split('/').pop() || 'index.html';
+    return rawPath.toLowerCase();
+  }
+
+  function renderNavigation() {
+    const navMenu = document.querySelector('#navmenu[data-nav-inject="true"]');
+    if (!navMenu) {
+      return;
+    }
+
+    const currentPath = getCurrentPath();
+    const navList = navItems.map((item) => {
+      if (!item.children) {
+        const activeClass = currentPath === item.href ? ' class="active"' : '';
+        return `<li><a href="${item.href}"${activeClass}>${item.label}</a></li>`;
+      }
+
+      const hasActiveChild = item.children.some((child) => currentPath === child.href);
+      const parentClass = hasActiveChild ? ' class="active"' : '';
+      const childrenHtml = item.children
+        .map((child) => {
+          const childClass = currentPath === child.href ? ' class="active"' : '';
+          return `<li><a href="${child.href}"${childClass}>${child.label}</a></li>`;
+        })
+        .join('');
+
+      return `<li class="dropdown"><a href="#"${parentClass}><span>${item.label}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a><ul>${childrenHtml}</ul></li>`;
+    }).join('');
+
+    navMenu.innerHTML = `<ul>${navList}</ul><i class="mobile-nav-toggle d-xl-none bi bi-list"></i>`;
+  }
+
+  function renderFooterLinks() {
+    const footerLinks = document.querySelector('#footer-links');
+    if (!footerLinks) {
+      return;
+    }
+
+    const columns = footerColumns.map((column) => {
+      const links = column
+        .map((link) => `<a href="${link.href}"><h5${link.className ? ` class="${link.className}"` : ''}>${link.label}</h5></a>`)
+        .join('');
+      return `<div class="d-flex flex-column">${links}</div>`;
+    }).join('');
+
+    footerLinks.innerHTML = `
+      <div class="col-auto">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="assets/img/logo.png" alt="" style="max-width: 180px;">
+        </a>
+      </div>
+      <div class="col-auto">
+        <div class="d-flex flex-wrap gap-5">${columns}</div>
+      </div>
+    `;
+  }
+
+  renderNavigation();
+  renderFooterLinks();
+
   /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
+    if (!selectHeader || !selectBody) return;
     if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
     window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
@@ -28,6 +136,7 @@
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
+    if (!mobileNavToggleBtn) return;
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
@@ -80,13 +189,15 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
@@ -95,6 +206,7 @@
    * Animation on scroll function and init
    */
   function aosInit() {
+    if (!window.AOS) return;
     AOS.init({
       duration: 600,
       easing: 'ease-in-out',
@@ -108,24 +220,32 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+    if (!window.Swiper) return;
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = {
+        speed: 600,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        slidesPerView: 1
+      };
+
+      const configNode = swiperElement.querySelector(".swiper-config");
+      if (configNode) {
+        try {
+          config = JSON.parse(configNode.innerHTML.trim());
+        } catch (error) {
+          console.warn("Invalid swiper config JSON. Using default config.", error);
+        }
       }
+
+      new Swiper(swiperElement, config);
     });
   }
 
   window.addEventListener("load", initSwiper);
-
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
 
 })();
