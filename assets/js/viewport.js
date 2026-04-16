@@ -6,6 +6,13 @@
     return;
   }
 
+  const isMobileLayout = window.matchMedia('(max-width: 1199px)').matches;
+
+  if (isMobileLayout) {
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    return;
+  }
+
   const scale = window.innerWidth / DESIGN_WIDTH;
   viewport.setAttribute(
     'content',

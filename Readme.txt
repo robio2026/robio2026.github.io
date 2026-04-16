@@ -34,6 +34,7 @@ copy-paste maintenance across HTML pages.
 - Swiper CSS/JS is loaded only by index.html.
 - php-email-form and purecounter were removed from all pages because they are not used.
 - Shared viewport scaling now lives in assets/js/viewport.js and is included by every page.
+- On screens up to 1199px wide, viewport.js switches to width=device-width and the CSS mobile breakpoints take over.
 
 5) How to add a new top-level page
 - Create newpage.html with:

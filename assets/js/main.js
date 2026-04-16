@@ -111,20 +111,22 @@
       const links = column
         .map((link) => `<a href="${link.href}"><h5${link.className ? ` class="${link.className}"` : ''}>${link.label}</h5></a>`)
         .join('');
-      return `<div class="d-flex flex-column">${links}</div>`;
+      return `<div class="col">
+        <div class="d-flex flex-column footer-link-column">${links}</div>
+      </div>`;
     }).join('');
 
     footer.innerHTML = `
       <div class="footer-top">
         <div class="container" data-aos="fade-up">
-          <div class="row justify-content-between align-items-start">
-            <div class="col-auto">
-              <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="" style="max-width: 180px;">
+          <div class="row justify-content-between align-items-start g-4">
+            <div class="col-auto footer-brand">
+              <a href="index.html" class="logo d-inline-flex align-items-center">
+                <img src="assets/img/logo.png" alt="" class="footer-logo-img">
               </a>
             </div>
-            <div class="col-auto">
-              <div class="d-flex flex-wrap gap-5">${columns}</div>
+            <div class="col-auto footer-links-wrap">
+              <div class="row row-cols-2 row-cols-lg-4 g-4 justify-content-end footer-links-grid">${columns}</div>
             </div>
           </div>
         </div>
@@ -141,6 +143,26 @@
 
   renderNavigation();
   renderFooter();
+
+  const navMenu = document.querySelector('#navmenu[data-nav-inject="true"]');
+
+  function isMobileNavMode() {
+    return window.matchMedia('(max-width: 1199px)').matches;
+  }
+
+  function closeMobileNav() {
+    document.body.classList.remove('mobile-nav-active');
+    if (mobileNavToggleBtn) {
+      mobileNavToggleBtn.classList.add('bi-list');
+      mobileNavToggleBtn.classList.remove('bi-x');
+    }
+
+    if (navMenu) {
+      navMenu.querySelectorAll('.dropdown-active').forEach((dropdown) => {
+        dropdown.classList.remove('dropdown-active');
+      });
+    }
+  }
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -163,37 +185,48 @@
 
   function mobileNavToogle() {
     if (!mobileNavToggleBtn) return;
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+    const nextState = !document.body.classList.contains('mobile-nav-active');
+    if (nextState) {
+      document.body.classList.add('mobile-nav-active');
+      mobileNavToggleBtn.classList.remove('bi-list');
+      mobileNavToggleBtn.classList.add('bi-x');
+      return;
+    }
+
+    closeMobileNav();
   }
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
   }
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+  if (navMenu) {
+    navMenu.addEventListener('click', (event) => {
+      const dropdownLink = event.target.closest('.dropdown > a');
+      if (dropdownLink && isMobileNavMode()) {
+        event.preventDefault();
+        const dropdown = dropdownLink.parentElement;
+        dropdown.classList.toggle('active');
+        dropdown.classList.toggle('dropdown-active');
+        return;
+      }
+
+      const clickedLink = event.target.closest('a');
+      if (clickedLink && document.body.classList.contains('mobile-nav-active')) {
+        closeMobileNav();
       }
     });
 
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+    navMenu.querySelectorAll('.toggle-dropdown').forEach((toggle) => {
+      toggle.addEventListener('click', function(event) {
+        if (!isMobileNavMode()) {
+          event.preventDefault();
+          this.parentNode.classList.toggle('active');
+          this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+          event.stopImmediatePropagation();
+        }
+      });
     });
-  });
+  }
 
   /**
    * Preloader
