@@ -1021,6 +1021,37 @@ table {
   text-align: center;
 }
 
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll table {
+  margin: 0;
+  min-width: 720px;
+}
+
+.visa-overview {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.visa-overview-text {
+  width: 70%;
+}
+
+.visa-overview-map {
+  width: 30%;
+}
+
+.visa-overview-map iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
 table td,
 table th {
   border: 1px solid #ddd;
@@ -1255,6 +1286,15 @@ table th {
     font-size: 16px;
   }
 
+  .table-scroll table {
+    min-width: 640px;
+  }
+
+  table td,
+  table th {
+    padding: 4px 4px;
+  }
+
   .attractions-intro h2,
   .attractions-note h2 {
     font-size: 28px;
@@ -1273,6 +1313,22 @@ table th {
   }
 }
 
+@media (max-width: 767px) {
+  .visa-overview {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .visa-overview-text,
+  .visa-overview-map {
+    width: 100%;
+  }
+
+  .visa-overview-map iframe {
+    height: 320px;
+  }
+}
+
 @media (max-width: 575px) {
   .header .logo img {
     max-height: 38px;
@@ -1281,6 +1337,11 @@ table th {
   .navmenu a,
   .navmenu a:focus {
     font-size: 15px;
+  }
+
+  .table-scroll table {
+    min-width: 560px;
+    font-size: 14px;
   }
 
   .main-section .main-section-item {
@@ -1331,6 +1392,10 @@ table th {
   .main .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .visa-overview-map iframe {
+    height: 300px;
   }
 
   .footer .footer-brand {
