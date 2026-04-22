@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Committee Placeholder</title>
+  <desc id="desc">Placeholder portrait image for committee members.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf4fb"/>
+      <stop offset="100%" stop-color="#cfe2f5"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="300" cy="220" r="105" fill="#90b4d6"/>
+  <path d="M130 518c22-104 100-162 170-162s148 58 170 162" fill="#7aa1c9"/>
+  <circle cx="300" cy="220" r="76" fill="#dfeaf5"/>
+  <path d="M184 505c20-70 69-115 116-115s96 45 116 115" fill="#dfeaf5"/>
+  <text x="300" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#004da0">XXX</text>
+</svg>
