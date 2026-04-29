@@ -1257,37 +1257,37 @@ table th {
 }
 
 .page-committees .committee-ref-grid.cols-1 {
-  max-width: 280px;
+  max-width: 300px;
 }
 
 .page-committees .committee-ref-grid.cols-2 {
-  max-width: 518px;
+  max-width: 578px;
 }
 
 .page-committees .committee-ref-grid.cols-3 {
-  max-width: 726px;
+  max-width: 816px;
 }
 
 .page-committees .committee-ref-grid.cols-4 {
-  max-width: 934px;
+  max-width: 1094px;
 }
 
 .page-committees .committee-ref-person {
-  flex: 0 1 220px;
+  flex: 0 1 260px;
   padding: 16px 14px 18px;
   text-align: center;
 }
 
 .page-committees .committee-ref-grid.cols-1 .committee-ref-person {
-  flex-basis: 280px;
+  flex-basis: 300px;
 }
 
 .page-committees .committee-ref-grid.cols-2 .committee-ref-person {
-  flex-basis: 250px;
+  flex-basis: 280px;
 }
 
 .page-committees .committee-ref-grid.cols-3 .committee-ref-person {
-  flex-basis: 230px;
+  flex-basis: 260px;
 }
 
 .page-committees .committee-ref-section:nth-of-type(3n+1) .committee-ref-title {
@@ -1369,9 +1369,10 @@ table th {
 
 .page-committees .committee-ref-name {
   margin-bottom: 6px;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 1.25;
   font-weight: 700;
+  white-space: nowrap;
   color: var(--heading-color);
 }
 
@@ -1436,15 +1437,15 @@ table th {
   }
 
   .page-committees .committee-ref-grid.cols-4 {
-    max-width: 696px;
+    max-width: 816px;
   }
 
   .page-committees .committee-ref-grid.cols-3 {
-    max-width: 696px;
+    max-width: 816px;
   }
 
   .page-committees .committee-ref-grid.cols-3 .committee-ref-person {
-    flex-basis: 220px;
+    flex-basis: 260px;
   }
 
   .page-committees .committee-ref-title {
@@ -1790,7 +1791,7 @@ table th {
   }
 
   .page-committees .committee-ref-name {
-    font-size: 22px;
+    font-size: 19px;
   }
 
   .page-committees .committee-ref-affiliation {
@@ -1800,16 +1801,16 @@ table th {
 
 @media (min-width: 576px) and (max-width: 991px) {
   .page-committees .committee-ref-grid.cols-4 {
-    max-width: 458px;
+    max-width: 538px;
   }
 
   .page-committees .committee-ref-grid.cols-3 {
-    max-width: 458px;
+    max-width: 538px;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   .page-committees .committee-ref-grid.cols-2 {
-    max-width: 250px;
+    max-width: 280px;
   }
 }

@@ -25,6 +25,9 @@ PORTRAIT_OVERRIDES = {
     "zhao-lian": {
         "allow_width_padding": True,
     },
+    "li-aili": {
+        "size_scale": 1.90,
+    },
 }
 
 
