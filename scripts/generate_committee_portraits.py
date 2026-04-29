@@ -28,6 +28,10 @@ PORTRAIT_OVERRIDES = {
     "li-aili": {
         "size_scale": 1.90,
     },
+    "guan-henry": {
+        "x_shift": -0.08,
+        "top_margin": 0.20,
+    },
 }
 
 
@@ -105,7 +109,7 @@ def crop_box(
             size = width
         else:
             size = desired_size
-        left = cx - size / 2
+        left = cx - size / 2 + size * override.get("x_shift", 0)
         top = y - h * override.get("top_margin", 0.40)
     else:
         size = min(width, height)
