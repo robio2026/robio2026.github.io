@@ -61,12 +61,12 @@
 
 ul {
   color: var(--default-color);
-  font-size: 23px;
+  font-size: 21px;
 }
 
 ol {
   color: var(--default-color);
-  font-size: 23px;
+  font-size: 21px;
 }
 
 .dark-background {
@@ -708,7 +708,7 @@ section,
 .section p {
   margin-bottom: 0;
   position: relative;
-  font-size: 23px;
+  font-size: 21px;
 }
 
 
@@ -1122,6 +1122,55 @@ table th {
 
 .page-sponsorship .sponsor-schedule-table {
   min-width: 560px;
+}
+
+.page-paper-submission .paper-action-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.page-paper-submission .paper-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 220px;
+  min-height: 54px;
+  padding: 12px 20px;
+  border: 2px solid var(--heading-color);
+  border-radius: 6px;
+  background: var(--surface-color);
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.page-paper-submission .paper-action-btn i {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.page-paper-submission .paper-action-btn:hover {
+  background: color-mix(in srgb, var(--heading-color), transparent 92%);
+  color: var(--heading-color);
+}
+
+.page-paper-submission .paper-action-primary {
+  background: var(--heading-color);
+  color: var(--contrast-color);
+}
+
+.page-paper-submission .paper-action-primary:hover {
+  background: color-mix(in srgb, var(--heading-color), black 12%);
+  color: var(--contrast-color);
+}
+
+.page-paper-submission .paper-system-note {
+  font-size: 20px;
 }
 
 .page-sponsorship .exhibitor-layout {
@@ -1659,6 +1708,17 @@ table th {
 }
 
 @media (max-width: 767px) {
+  .page-paper-submission .paper-action-panel {
+    gap: 10px;
+  }
+
+  .page-paper-submission .paper-action-btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    font-size: 16px;
+  }
+
   .visa-overview {
     flex-direction: column;
     gap: 16px;
