@@ -1360,7 +1360,7 @@ table th {
   margin: 0 auto 12px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center 0%;
+  object-position: center center;
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 82%);
   background: #f5f8fc;
