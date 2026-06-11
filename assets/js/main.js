@@ -6,7 +6,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-(function() {
+(function () {
   "use strict";
 
   const navItems = [
@@ -38,20 +38,22 @@
 
   const footerColumns = [
     [
-      { label: "COMMITTEES", href: "committees.html", className: "mb-4" },
-      { label: "VISA & TRAVEL", href: "visa.html" }
-    ],
-    [
-      { label: "CONTRIBUTION", href: "call-for-papers.html", className: "mb-4" },
-      { label: "VENUE", href: "venue.html" }
-    ],
-    [
-      { label: "PROGRAM", href: "program.html", className: "mb-4" },
-      { label: "ACCOMMODATION", href: "accommodation.html" }
-    ],
-    [
+      { label: "HOME", href: "index.html" },
       { label: "REGISTRATION", href: "registration.html", className: "mb-4" },
-      { label: "AWARDS", href: "awards.html" }
+    ],
+    [
+      { label: "COMMITTEES", href: "committees.html"},
+      { label: "SPONSORSHIP", href: "sponsorship.html", className: "mb-4"  }
+
+    ],
+    [
+      { label: "CONTRIBUTION", href: "call-for-papers.html" },
+      { label: "TRAVEL", href: "visa.html", className: "mb-4" }
+    ],
+    [
+      { label: "PROGRAM", href: "program.html" },
+
+      { label: "AWARDS", href: "awards.html", className: "mb-4" }
     ]
   ];
 
@@ -217,7 +219,7 @@
     });
 
     navMenu.querySelectorAll('.toggle-dropdown').forEach((toggle) => {
-      toggle.addEventListener('click', function(event) {
+      toggle.addEventListener('click', function (event) {
         if (!isMobileNavMode()) {
           event.preventDefault();
           this.parentNode.classList.toggle('active');
@@ -281,7 +283,7 @@
   function initSwiper() {
     if (!window.Swiper) return;
 
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = {
         speed: 600,
         loop: true,
