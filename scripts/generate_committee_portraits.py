@@ -13,8 +13,8 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "committees.html"
-SOURCE_DIR = ROOT / "assets/img/committees"
-OUTPUT_DIR = ROOT / "assets/img/committees/portraits"
+SOURCE_DIR = ROOT / "assets/img/invited_speakers"
+OUTPUT_DIR = ROOT / "assets/img/invited_speakers/portraits"
 OUTPUT_SIZE = 600
 FALLBACK_CANVAS_COLOR = (255, 255, 255)
 PORTRAIT_OVERRIDES = {
