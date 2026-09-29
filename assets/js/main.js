@@ -21,7 +21,13 @@
         { label: "FINAL SUBMISSION", href: "final-submission.html" }
       ]
     },
-    { label: "PROGRAM", href: "program.html" },
+    {
+      label: "PROGRAM",
+      children: [
+        { label: "PROGRAM OVERVIEW", href: "program.html" },
+        { label: "INVITED SPEAKERS", href: "invited-speakers.html" }
+      ]
+    },
     { label: "REGISTRATION", href: "registration.html" },
     { label: "SPONSORSHIP", href: "sponsorship.html" },
     {
